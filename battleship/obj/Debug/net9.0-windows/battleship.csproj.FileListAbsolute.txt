@@ -1,0 +1,16 @@
+C:\Users\DSU\OneDrive - Dakota State University\Desktop\Object orinted design\project\battleship\bin\Debug\net9.0-windows\battleship.exe
+C:\Users\DSU\OneDrive - Dakota State University\Desktop\Object orinted design\project\battleship\bin\Debug\net9.0-windows\battleship.deps.json
+C:\Users\DSU\OneDrive - Dakota State University\Desktop\Object orinted design\project\battleship\bin\Debug\net9.0-windows\battleship.runtimeconfig.json
+C:\Users\DSU\OneDrive - Dakota State University\Desktop\Object orinted design\project\battleship\bin\Debug\net9.0-windows\battleship.dll
+C:\Users\DSU\OneDrive - Dakota State University\Desktop\Object orinted design\project\battleship\bin\Debug\net9.0-windows\battleship.pdb
+C:\Users\DSU\OneDrive - Dakota State University\Desktop\Object orinted design\project\battleship\obj\Debug\net9.0-windows\battleship.Form1.resources
+C:\Users\DSU\OneDrive - Dakota State University\Desktop\Object orinted design\project\battleship\obj\Debug\net9.0-windows\battleship.csproj.GenerateResource.cache
+C:\Users\DSU\OneDrive - Dakota State University\Desktop\Object orinted design\project\battleship\obj\Debug\net9.0-windows\battleship.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DSU\OneDrive - Dakota State University\Desktop\Object orinted design\project\battleship\obj\Debug\net9.0-windows\battleship.AssemblyInfoInputs.cache
+C:\Users\DSU\OneDrive - Dakota State University\Desktop\Object orinted design\project\battleship\obj\Debug\net9.0-windows\battleship.AssemblyInfo.cs
+C:\Users\DSU\OneDrive - Dakota State University\Desktop\Object orinted design\project\battleship\obj\Debug\net9.0-windows\battleship.csproj.CoreCompileInputs.cache
+C:\Users\DSU\OneDrive - Dakota State University\Desktop\Object orinted design\project\battleship\obj\Debug\net9.0-windows\battleship.dll
+C:\Users\DSU\OneDrive - Dakota State University\Desktop\Object orinted design\project\battleship\obj\Debug\net9.0-windows\refint\battleship.dll
+C:\Users\DSU\OneDrive - Dakota State University\Desktop\Object orinted design\project\battleship\obj\Debug\net9.0-windows\battleship.pdb
+C:\Users\DSU\OneDrive - Dakota State University\Desktop\Object orinted design\project\battleship\obj\Debug\net9.0-windows\battleship.genruntimeconfig.cache
+C:\Users\DSU\OneDrive - Dakota State University\Desktop\Object orinted design\project\battleship\obj\Debug\net9.0-windows\ref\battleship.dll
