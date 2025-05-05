@@ -35,6 +35,7 @@
             PlayerGridPanel = new Panel();
             Enemylbl = new Label();
             PlayerLbl = new Label();
+            checkBox1 = new CheckBox();
             SuspendLayout();
             // 
             // btnStart
@@ -111,12 +112,24 @@
             PlayerLbl.TabIndex = 6;
             PlayerLbl.Text = "Player";
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(480, 427);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(183, 29);
+            checkBox1.TabIndex = 7;
+            checkBox1.Text = "Verticle/Horizontal";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(808, 844);
+            Controls.Add(checkBox1);
             Controls.Add(PlayerLbl);
             Controls.Add(Enemylbl);
             Controls.Add(PlayerGridPanel);
@@ -139,5 +152,6 @@
         private Panel PlayerGridPanel;
         private Label Enemylbl;
         private Label PlayerLbl;
+        private CheckBox checkBox1;
     }
 }

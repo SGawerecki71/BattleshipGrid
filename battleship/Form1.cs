@@ -9,7 +9,7 @@ namespace battleship
         private int[] shipSizes = { 5, 4, 3, 3, 2 };
         private int[,] playerGrid = new int[gridSize, gridSize];
         private List<Ship> playerShips = new List<Ship>();
-        private int[,] enemyGrid = new int[gridSize, gridSize]; 
+        private int[,] enemyGrid = new int[gridSize, gridSize];
         private List<Ship> enemyShips = new List<Ship>();
         private GameController controller = new GameController();
 
@@ -51,6 +51,8 @@ namespace battleship
             int cellHeight = panel.Height / gridSize;
             Pen pen = Pens.Black;
             Brush shipBrush = Brushes.Gray;
+            Brush hitBrush = Brushes.Red;
+            Brush missBrush = Brushes.White;
 
             for (int row = 0; row < gridSize; row++)
             {
@@ -60,7 +62,13 @@ namespace battleship
                     int y = row * cellHeight;
                     g.DrawRectangle(pen, x, y, cellWidth, cellHeight);
 
-                    if (grid[col, row] == 1)
+                    int cellValue = grid[col, row];
+
+                    if (cellValue == 3)
+                        g.FillRectangle(hitBrush, x + 1, y + 1, cellWidth - 2, cellHeight - 2);
+                    else if (cellValue == 2)
+                        g.FillRectangle(missBrush, x + 1, y + 1, cellWidth - 2, cellHeight - 2);
+                    else if (cellValue == 1 && !hideships)
                         g.FillRectangle(shipBrush, x + 1, y + 1, cellWidth - 2, cellHeight - 2);
                 }
             }
@@ -74,7 +82,7 @@ namespace battleship
             int col = e.X / cellWidth;
             int row = e.Y / cellHeight;
 
-            return new Point(col, row); 
+            return new Point(col, row);
         }
 
         private void EnemyGrid_MouseClick(object sender, MouseEventArgs e)
@@ -127,9 +135,6 @@ namespace battleship
 
         private void PlayerGid_MouseClick(object sender, MouseEventArgs e)
         {
-            /*Point cell = GetCellFromClick(e, PlayerGrid);
-            MessageBox.Show($"Player Grid Clicked: Row {cell.Y}, Col {cell.X}");
-             TODO: Place ship or handle attack*/
             if (!placingShips || shipIndexToPlace >= shipNames.Length)
                 return;
 
@@ -141,7 +146,7 @@ namespace battleship
             {
                 shipIndexToPlace++;
                 lblStatus.Text = $"Placed {shipNames[shipIndexToPlace - 1]}.";
-                PlayerGridPanel.Invalidate(); // Redraw to show the ship
+                PlayerGridPanel.Invalidate();
 
                 if (shipIndexToPlace >= shipNames.Length)
                 {
@@ -165,7 +170,7 @@ namespace battleship
                 int y = horizontal ? start.Y : start.Y + i;
 
                 if (x >= gridSize || y >= gridSize || grid[x, y] != 0)
-                    return false; 
+                    return false;
 
                 ship.Coordinates.Add(new Point(x, y));
             }
@@ -192,6 +197,11 @@ namespace battleship
                     placed = PlaceShip(enemyGrid, enemyShips, shipNames[i], shipSizes[i], new Point(x, y), horizontal);
                 }
             }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
