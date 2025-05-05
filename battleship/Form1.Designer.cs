@@ -32,9 +32,9 @@
             btnRestart = new Button();
             lblStatus = new Label();
             EnemyGrid = new Panel();
-            PlayerGrid = new Panel();
-            Enemytxt = new TextBox();
-            PlayerTxt = new TextBox();
+            PlayerGridPanel = new Panel();
+            Enemylbl = new Label();
+            PlayerLbl = new Label();
             SuspendLayout();
             // 
             // btnStart
@@ -61,15 +61,17 @@
             // 
             lblStatus.AutoSize = true;
             lblStatus.BorderStyle = BorderStyle.FixedSingle;
-            lblStatus.Location = new Point(369, 35);
+            lblStatus.Location = new Point(360, 35);
             lblStatus.Name = "lblStatus";
             lblStatus.Size = new Size(80, 27);
             lblStatus.TabIndex = 2;
             lblStatus.Text = "Hit/Miss";
+            lblStatus.TextAlign = ContentAlignment.MiddleCenter;
             lblStatus.Click += lblStatus_Click;
             // 
             // EnemyGrid
             // 
+            EnemyGrid.BackColor = Color.LightSkyBlue;
             EnemyGrid.BorderStyle = BorderStyle.FixedSingle;
             EnemyGrid.Location = new Point(100, 107);
             EnemyGrid.Name = "EnemyGrid";
@@ -78,48 +80,46 @@
             EnemyGrid.Paint += EnemyGrid_Paint;
             EnemyGrid.MouseClick += EnemyGrid_MouseClick;
             // 
-            // PlayerGrid
+            // PlayerGridPanel
             // 
-            PlayerGrid.BorderStyle = BorderStyle.FixedSingle;
-            PlayerGrid.Location = new Point(100, 459);
-            PlayerGrid.Name = "PlayerGrid";
-            PlayerGrid.Size = new Size(600, 300);
-            PlayerGrid.TabIndex = 4;
-            PlayerGrid.Paint += PlayerGid_Paint;
-            PlayerGrid.MouseClick += PlayerGid_MouseClick;
+            PlayerGridPanel.BackColor = Color.LightSkyBlue;
+            PlayerGridPanel.BorderStyle = BorderStyle.FixedSingle;
+            PlayerGridPanel.Location = new Point(100, 459);
+            PlayerGridPanel.Name = "PlayerGridPanel";
+            PlayerGridPanel.Size = new Size(600, 300);
+            PlayerGridPanel.TabIndex = 4;
+            PlayerGridPanel.Paint += PlayerGid_Paint;
+            PlayerGridPanel.MouseClick += PlayerGid_MouseClick;
             // 
-            // Enemytxt
+            // Enemylbl
             // 
-            Enemytxt.BorderStyle = BorderStyle.FixedSingle;
-            Enemytxt.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Enemytxt.Location = new Point(336, 70);
-            Enemytxt.Name = "Enemytxt";
-            Enemytxt.Size = new Size(150, 34);
-            Enemytxt.TabIndex = 5;
-            Enemytxt.Text = "Enemy";
-            Enemytxt.TextAlign = HorizontalAlignment.Center;
-            Enemytxt.TextChanged += Enemytxt_TextChanged;
+            Enemylbl.AutoSize = true;
+            Enemylbl.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Enemylbl.Location = new Point(375, 76);
+            Enemylbl.Name = "Enemylbl";
+            Enemylbl.Size = new Size(70, 28);
+            Enemylbl.TabIndex = 5;
+            Enemylbl.Text = "Enemy";
             // 
-            // PlayerTxt
+            // PlayerLbl
             // 
-            PlayerTxt.BorderStyle = BorderStyle.FixedSingle;
-            PlayerTxt.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            PlayerTxt.Location = new Point(336, 419);
-            PlayerTxt.Name = "PlayerTxt";
-            PlayerTxt.Size = new Size(150, 34);
-            PlayerTxt.TabIndex = 6;
-            PlayerTxt.Text = "Player";
-            PlayerTxt.TextAlign = HorizontalAlignment.Center;
-            PlayerTxt.TextChanged += PlayerTxt_TextChanged;
+            PlayerLbl.AutoSize = true;
+            PlayerLbl.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            PlayerLbl.Location = new Point(375, 428);
+            PlayerLbl.Name = "PlayerLbl";
+            PlayerLbl.Size = new Size(65, 28);
+            PlayerLbl.TabIndex = 6;
+            PlayerLbl.Text = "Player";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(878, 844);
-            Controls.Add(PlayerTxt);
-            Controls.Add(Enemytxt);
-            Controls.Add(PlayerGrid);
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(808, 844);
+            Controls.Add(PlayerLbl);
+            Controls.Add(Enemylbl);
+            Controls.Add(PlayerGridPanel);
             Controls.Add(EnemyGrid);
             Controls.Add(lblStatus);
             Controls.Add(btnRestart);
@@ -136,8 +136,8 @@
         private Button btnRestart;
         private Label lblStatus;
         private Panel EnemyGrid;
-        private Panel PlayerGrid;
-        private TextBox Enemytxt;
-        private TextBox PlayerTxt;
+        private Panel PlayerGridPanel;
+        private Label Enemylbl;
+        private Label PlayerLbl;
     }
 }
