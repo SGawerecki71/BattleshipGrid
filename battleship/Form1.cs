@@ -91,6 +91,13 @@ namespace battleship
                 return;
 
             Point cell = GetCellFromClick(e, EnemyGrid);
+
+            if (enemyGrid[cell.X, cell.Y] == 2 || enemyGrid[cell.X, cell.Y] == 3)
+            {
+                lblStatus.Text = "You already attacked this spot!";
+                return;
+            }
+
             string result = controller.HandleAttack(enemyGrid, enemyShips, cell);
             lblStatus.Text = result;
             EnemyGrid.Invalidate();
@@ -108,28 +115,40 @@ namespace battleship
         private void EnemyTurn()
         {
             Random rand = new Random();
-            bool moveMade = false;
+            Point cell;
 
-            while (!moveMade)
+            if (controller.HasTargets())
             {
-                int x = rand.Next(gridSize);
-                int y = rand.Next(gridSize);
-                if (playerGrid[x, y] == 0 || playerGrid[x, y] == 1)
-                {
-                    string result = controller.HandleAttack(playerGrid, playerShips, new Point(x, y));
-                    lblStatus.Text = "Enemy Turn: " + result;
-                    moveMade = true;
-                    PlayerGridPanel.Invalidate();
-
-                    if (controller.AllShipsSunk(playerShips))
-                    {
-                        lblStatus.Text = "Enemy wins!";
-                        return;
-                    }
-
-                    controller.SwitchTurn();
-                }
+                cell = controller.GetNextTarget();
             }
+            else
+            {
+                do
+                {
+                    int x = rand.Next(gridSize);
+                    int y = rand.Next(gridSize);
+                    cell = new Point(x, y);
+                }
+                while (playerGrid[cell.X, cell.Y] == 2 || playerGrid[cell.X, cell.Y] == 3);
+            }
+
+            controller.MarkTried(cell);
+            string result = controller.HandleAttack(playerGrid, playerShips, cell);
+            lblStatus.Text = "Enemy Turn: " + result;
+            PlayerGridPanel.Invalidate();
+
+            if (controller.AllShipsSunk(playerShips))
+            {
+                lblStatus.Text = "Enemy wins!";
+                return;
+            }
+
+            if (playerGrid[cell.X, cell.Y] == 3) 
+            {
+                controller.AddAdjacentTargets(cell, gridSize);
+            }
+
+            controller.SwitchTurn();
         }
 
 
@@ -199,9 +218,10 @@ namespace battleship
             }
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void cbPlacement_CheckedChanged(object sender, EventArgs e)
         {
-
+            placeHorizontal = cbPlacement.Checked;
+            cbPlacement.Text = placeHorizontal ? "Orientation: Horizontal" : "Orientation: Vertical";
         }
     }
 }

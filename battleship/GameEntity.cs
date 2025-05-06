@@ -7,9 +7,9 @@ using System.Xml.Linq;
 
 namespace battleship
 {
-    public abstract class GameEntity
+    public abstract class GameEntity : IGameEntity
     {
-        public string? Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         public int Size { get; set; }
         public List<Point> Coordinates { get; set; } = new List<Point>();
 
